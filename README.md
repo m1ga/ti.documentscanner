@@ -5,6 +5,8 @@
 Android module for Appcelerator Titanium to scan and crop documents.<br/>
 For iOS have a look at https://github.com/hansemannn/titanium-scanner
 
+Used library: https://github.com/mayuce/AndroidDocumentScanner
+
 ## Installation
 
 ```xml
