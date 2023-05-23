@@ -1,21 +1,3 @@
-# Document scanner with cropping for Android
-
-<img src="preview.jpg"/>
-
-Android module for Appcelerator Titanium to scan and crop documents.<br/>
-For iOS have a look at https://github.com/hansemannn/titanium-scanner
-
-Used library: https://github.com/mayuce/AndroidDocumentScanner
-
-## Installation
-
-```xml
-<module>ti.documentscanner</module>
-```
-
-## Example:
-
-```js
 var win = Ti.UI.createWindow({});
 var btn = Ti.UI.createButton({
 	title: "open camera",
@@ -27,6 +9,9 @@ var dsv = require("ti.documentscanner").createCropView({
 	width: Ti.UI.FILL,
 	height: Ti.UI.FILL,
 });
+dsv.addEventListener("error", function(e){
+    console.log(e.message);
+})
 win.add(dsv);
 win.add(img);
 win.add(btn);
@@ -55,6 +40,3 @@ btn.addEventListener("click", function() {
 });
 
 win.open();
-```
-
-check "example/app.js" for a full example with events.

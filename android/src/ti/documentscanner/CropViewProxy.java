@@ -83,7 +83,17 @@ public class CropViewProxy extends TiViewProxy {
 
     @Kroll.method
     public TiBlob cropImage() {
-        return TiBlob.blobFromImage(dsv.getCroppedImage());
+        Bitmap returnImage;
+        try {
+            returnImage = dsv.getCroppedImage();
+            return TiBlob.blobFromImage(returnImage);
+        } catch (Exception e) {
+            KrollDict kd = new KrollDict();
+            kd.put("message", "Invalid shape");
+            kd.put("errorCode", 1);
+            fireEvent("error", kd);
+            return null;
+        }
     }
 
     private class CropView extends TiUIView {
