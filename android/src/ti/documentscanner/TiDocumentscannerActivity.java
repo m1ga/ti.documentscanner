@@ -26,7 +26,6 @@ public class TiDocumentscannerActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         GmsDocumentScannerOptions options = new GmsDocumentScannerOptions.Builder()
                 .setGalleryImportAllowed(false)
                 .setResultFormats(RESULT_FORMAT_JPEG, RESULT_FORMAT_PDF)
@@ -61,6 +60,8 @@ public class TiDocumentscannerActivity extends AppCompatActivity {
 
                                 TiDocumentscannerModule.callMe(kd);
                                 finish();
+                            } else {
+                              finish();
                             }
                         });
         scanner.getStartScanIntent(TiApplication.getAppRootOrCurrentActivity())
